@@ -20,7 +20,7 @@ namespace Employee_Core.Controllers
         }
 
         [HttpGet, Route("showRating")]
-        public IEnumerable<Rating> showRating()
+        public List<Rating> showRating()
         {
             var Rating = RatingRepository.showRating();
             if (Rating == null)

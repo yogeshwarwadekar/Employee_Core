@@ -5,7 +5,7 @@ namespace Employee_Core.Models
 {
     public partial class Rating
     {
-        public int RatingId { get; set; }
-        public string RatingName { get; set; }
+        public int Rating_ID { get; set; }
+        public string Rating_Name { get; set; }
     }
 }

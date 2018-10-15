@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Employee_Core.Models;
 using Employee_Core.Repository;
+using Newtonsoft.Json.Serialization;
 
 namespace Employee_Core
 {
@@ -37,6 +38,18 @@ namespace Employee_Core
             services.AddScoped<IRatingRepository,RatingRepository>();
             services.AddScoped<IStateRepository,StateRepository>();
             services.AddScoped<ISkillRepository,SkillRepository>();
+
+            services.AddCors(option => option.AddPolicy("MyEmployeePolicy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+            }));
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new ProducesAttribute("application/json"));
+            });
+
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,8 +65,8 @@ namespace Employee_Core
             }
 
             app.UseHttpsRedirection();
-     
-       app.UseMvc();
+            app.UseCors("MyEmployeePolicy");
+            app.UseMvc();
         }
 
         

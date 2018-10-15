@@ -5,7 +5,7 @@ namespace Employee_Core.Models
 {
     public partial class Department
     {
-        public int DepartmentId { get; set; }
-        public string DepartmentName { get; set; }
+        public int Department_ID { get; set; }
+        public string Department_Name { get; set; }
     }
 }

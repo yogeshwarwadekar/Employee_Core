@@ -20,7 +20,7 @@ namespace Employee_Core.Controllers
         }
 
         [HttpGet, Route("showSkill")]
-        public IEnumerable<Skill> showSkill()
+        public List<Skill> showSkill()
         {
             var Skill = SkillRepository.showSkill();
             if (Skill == null)

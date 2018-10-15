@@ -20,7 +20,7 @@ namespace Employee_Core.Controllers
         }
 
         [HttpGet, Route("showState")]
-        public IEnumerable<State> showState()
+        public List<State> showState()
         {
             var State = StateRepository.showState();
             if (State == null)
