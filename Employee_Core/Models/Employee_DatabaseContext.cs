@@ -21,7 +21,8 @@ namespace Employee_Core.Models
         public virtual DbSet<Rating> Rating { get; set; }
         public virtual DbSet<Skill> Skill { get; set; }
         public virtual DbSet<State> State { get; set; }
-        
+        public virtual DbSet<EmployeeDetail> EmployeeDetail { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -34,75 +35,81 @@ namespace Employee_Core.Models
         {
             modelBuilder.Entity<City>(entity =>
             {
-                entity.Property(e => e.CityId).HasColumnName("City_ID");
+                entity.HasKey(e => e.City_ID);
 
-                entity.Property(e => e.CityName)
+                entity.Property(e => e.City_ID).HasColumnName("City_ID");
+
+                entity.Property(e => e.City_Name)
                     .HasColumnName("City_Name")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.StateId).HasColumnName("State_ID");
+                entity.Property(e => e.State_ID).HasColumnName("State_ID");
             });
 
             modelBuilder.Entity<Department>(entity =>
             {
-                entity.Property(e => e.DepartmentId).HasColumnName("Department_ID");
+                entity.HasKey(e => e.Department_ID); 
 
-                entity.Property(e => e.DepartmentName)
+                entity.Property(e => e.Department_ID).HasColumnName("Department_ID");
+
+                entity.Property(e => e.Department_Name)
                     .HasColumnName("Department_Name")
                     .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasKey(e => e.EmpId);
+                entity.HasKey(e => e.Emp_ID);
 
-                entity.Property(e => e.EmpId).HasColumnName("Emp_ID");
+                entity.Property(e => e.Emp_ID).HasColumnName("Emp_ID");
 
-                entity.Property(e => e.EmpCityId).HasColumnName("Emp_City_ID");
+                entity.Property(e => e.Emp_City_ID).HasColumnName("Emp_City_ID");
 
-                entity.Property(e => e.EmpDeptId).HasColumnName("Emp_Dept_ID");
+                entity.Property(e => e.Emp_Dept_ID).HasColumnName("Emp_Dept_ID");
 
-                entity.Property(e => e.EmpDob)
+                entity.Property(e => e.Emp_Dob)
                     .HasColumnName("Emp_DOB")
                     .HasColumnType("date");
 
-                entity.Property(e => e.EmpDoj)
+                entity.Property(e => e.Emp_Doj)
                     .HasColumnName("Emp_DOJ")
                     .HasColumnType("date");
 
-                entity.Property(e => e.EmpEmailId)
+                entity.Property(e => e.Emp_Email_ID)
                     .HasColumnName("Emp_Email_ID")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.EmpFirstName)
+                entity.Property(e => e.Emp_First_Name)
                     .HasColumnName("Emp_First_Name")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.EmpLastName)
+                entity.Property(e => e.Emp_Last_Name)
                     .HasColumnName("Emp_Last_Name")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.EmpMobileNumber)
+                entity.Property(e => e.Emp_Mobile_Number)
                     .HasColumnName("Emp_Mobile_Number")
                     .HasMaxLength(12);
 
-                entity.Property(e => e.EmpRating)
+                entity.Property(e => e.Emp_Rating)
                     .HasColumnName("Emp_Rating")
                     .HasMaxLength(15)
                     .IsUnicode(false);
 
-                entity.Property(e => e.EmpSkillId).HasColumnName("Emp_Skill_ID");
+                entity.Property(e => e.Emp_Skill_ID).HasColumnName("Emp_Skill_ID");
 
-                entity.Property(e => e.EmpStateId).HasColumnName("Emp_State_ID");
+                entity.Property(e => e.Emp_State_ID).HasColumnName("Emp_State_ID");
             });
 
             modelBuilder.Entity<Rating>(entity =>
             {
-                entity.Property(e => e.RatingId)
+                entity.HasKey(e => e.Rating_ID);
+
+                entity.Property(e => e.Rating_ID)
                     .HasColumnName("Rating_ID")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.RatingName)
+                entity.Property(e => e.Rating_Name)
                     .HasColumnName("Rating_Name")
                     .HasMaxLength(15)
                     .IsUnicode(false);
@@ -110,19 +117,99 @@ namespace Employee_Core.Models
 
             modelBuilder.Entity<Skill>(entity =>
             {
-                entity.Property(e => e.SkillId).HasColumnName("Skill_ID");
+                entity.HasKey(e => e.Skill_ID);
 
-                entity.Property(e => e.SkillName)
+                entity.Property(e => e.Skill_ID).HasColumnName("Skill_ID");
+
+                entity.Property(e => e.Skill_Name)
                     .HasColumnName("Skill_Name")
                     .HasMaxLength(50);
             });
 
             modelBuilder.Entity<State>(entity =>
             {
-                entity.Property(e => e.StateId).HasColumnName("State_ID");
+                entity.HasKey(e => e.State_ID);
 
-                entity.Property(e => e.StateName)
+                entity.Property(e => e.State_ID).HasColumnName("State_ID");
+
+                entity.Property(e => e.State_Name)
                     .HasColumnName("State_Name")
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<EmployeeDetail>(entity =>
+            {
+                entity.HasKey(e => e.Emp_ID);
+
+                entity.Property(e => e.Emp_ID).HasColumnName("Emp_ID");
+
+                entity.Property(e => e.Emp_City_ID).HasColumnName("Emp_City_ID");
+
+                entity.Property(e => e.Emp_Dept_ID).HasColumnName("Emp_Dept_ID");
+
+                entity.Property(e => e.Emp_DOB)
+                    .HasColumnName("Emp_DOB")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.Emp_DOJ)
+                    .HasColumnName("Emp_DOJ")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.Emp_Email_ID)
+                    .HasColumnName("Emp_Email_ID")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Emp_First_Name)
+                    .HasColumnName("Emp_First_Name")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Emp_Last_Name)
+                    .HasColumnName("Emp_Last_Name")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Emp_Mobile_Number)
+                    .HasColumnName("Emp_Mobile_Number")
+                    .HasMaxLength(12);
+
+                entity.Property(e => e.Emp_Rating)
+                    .HasColumnName("Emp_Rating")
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Emp_Skill_ID).HasColumnName("Emp_Skill_ID");
+
+                entity.Property(e => e.Emp_State_ID).HasColumnName("Emp_State_ID");
+
+                entity.Property(e => e.City_Name)
+                    .HasColumnName("City_Name")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Department_Name)
+                    .HasColumnName("Department_Name")
+                    .HasMaxLength(50);                              
+
+                entity.Property(e => e.Skill_Name)
+                    .HasColumnName("Skill_Name")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.State_Name)
+                    .HasColumnName("State_Name")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.City_ID)
+                    .HasColumnName("City_ID")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Department_ID)
+                    .HasColumnName("Department_ID")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Skill_ID)
+                    .HasColumnName("Skill_ID")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.State_ID)
+                    .HasColumnName("State_ID")
                     .HasMaxLength(50);
             });
         }

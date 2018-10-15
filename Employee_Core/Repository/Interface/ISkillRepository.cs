@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Employee_Core.Repository
 {
-    public interface IStateRepository
+    public interface ISkillRepository
     {
-        IEnumerable<State> showState();
+        List<Skill> showSkill();
     }
 }

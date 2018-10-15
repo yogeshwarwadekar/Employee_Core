@@ -20,7 +20,7 @@ namespace Employee_Core.Controllers
         }
 
         [HttpGet, Route("showDepartment")]
-        public IEnumerable<Department> showDepartment()
+        public List<Department> showDepartment()
         {
             var Department = DepartmentRepository.showDepartment();
             if (Department == null)

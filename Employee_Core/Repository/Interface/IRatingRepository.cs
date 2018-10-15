@@ -8,6 +8,6 @@ namespace Employee_Core.Repository
 {
     public interface IRatingRepository
     {
-        IEnumerable<Rating> showRating();
+        List<Rating> showRating();
     }
 }

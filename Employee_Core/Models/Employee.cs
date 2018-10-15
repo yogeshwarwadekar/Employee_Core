@@ -5,17 +5,17 @@ namespace Employee_Core.Models
 {
     public partial class Employee
     {
-        public int EmpId { get; set; }
-        public string EmpFirstName { get; set; }
-        public string EmpLastName { get; set; }
-        public string EmpEmailId { get; set; }
-        public string EmpMobileNumber { get; set; }
-        public int? EmpStateId { get; set; }
-        public int? EmpCityId { get; set; }
-        public int? EmpSkillId { get; set; }
-        public DateTime? EmpDob { get; set; }
-        public DateTime? EmpDoj { get; set; }
-        public int? EmpDeptId { get; set; }
-        public string EmpRating { get; set; }
+        public int Emp_ID { get; set; }
+        public string Emp_First_Name { get; set; }
+        public string Emp_Last_Name { get; set; }
+        public string Emp_Email_ID { get; set; }
+        public string Emp_Mobile_Number { get; set; }
+        public int? Emp_State_ID { get; set; }
+        public int? Emp_City_ID { get; set; }
+        public int? Emp_Skill_ID { get; set; }
+        public DateTime? Emp_Dob { get; set; }
+        public DateTime? Emp_Doj { get; set; }
+        public int? Emp_Dept_ID { get; set; }
+        public string Emp_Rating { get; set; }
     }
 }

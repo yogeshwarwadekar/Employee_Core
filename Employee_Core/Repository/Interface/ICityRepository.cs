@@ -8,6 +8,6 @@ namespace Employee_Core.Repository
 {
     public interface ICityRepository
     {
-        IEnumerable<City> showCity(int statevalue);
+        List<City> showCity(int statevalue);
     }
 }

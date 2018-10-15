@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Employee_Core.Repository
 {
-    public interface IDepartmentRepository
+    public interface IStateRepository
     {
-        IEnumerable<Department> showDepartment();
+        List<State> showState();
     }
 }

@@ -5,7 +5,7 @@ namespace Employee_Core.Models
 {
     public partial class Skill
     {
-        public int SkillId { get; set; }
-        public string SkillName { get; set; }
+        public int Skill_ID { get; set; }
+        public string Skill_Name { get; set; }
     }
 }

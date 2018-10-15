@@ -20,7 +20,7 @@ namespace Employee_Core.Controllers
         }
 
         [HttpGet, Route("showCity")]
-        public IEnumerable<City> showCity(int stateValue)
+        public List<City> showCity(int stateValue)
         {
             var city = CityRepository.showCity(stateValue);
             if (city == null)

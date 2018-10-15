@@ -1,4 +1,5 @@
 ﻿using Employee_Core.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Employee_Core.Repository
             db = _db;
         }
 
-        public IEnumerable<Rating> showRating()
+        public List<Rating> showRating()
         {
             if(db!=null)
             {

@@ -1,4 +1,5 @@
 ﻿using Employee_Core.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,15 @@ namespace Employee_Core.Repository
             db = _db;
         }
 
-        public IEnumerable<City> showCity(int statevalue)
+        public List<City> showCity(int statevalue)
         {
             try
             {
                 var cities = from city_List in db.City
-                             where city_List.StateId == statevalue
+                             where city_List.State_ID == statevalue
                              select city_List;
 
-                return cities.ToList();
+                return  cities.ToList();
             }
             catch (Exception ex)
             {                

@@ -1,0 +1,17 @@
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.deps.json
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.runtimeconfig.json
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.runtimeconfig.dev.json
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.dll
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.pdb
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_Core.dll
+E:\PRACTISE\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_Core.pdb
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.csprojAssemblyReference.cache
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.csproj.CoreCompileInputs.cache
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.AssemblyInfoInputs.cache
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.AssemblyInfo.cs
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.csproj.CopyComplete
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.dll
+E:\PRACTISE\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.pdb

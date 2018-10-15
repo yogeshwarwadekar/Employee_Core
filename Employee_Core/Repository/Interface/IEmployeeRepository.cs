@@ -2,13 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Employee_Core.Repository
 {
     public interface IEmployeeRepository
-    {        
-        IEnumerable<Employee> showEmployee();
+    {
+        List<EmployeeDetail> showEmployee();
         Employee employeeDetail(int id);
         void addEmployee(Employee employee);
         void deleteEmployee(string employeeIds);
