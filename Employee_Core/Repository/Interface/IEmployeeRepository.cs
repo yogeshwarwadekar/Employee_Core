@@ -9,8 +9,8 @@ namespace Employee_Core.Repository
     {
         List<EmployeeDetail> showEmployee();
         Employee employeeDetail(int id);
-        void addEmployee(Employee employee);
-        void deleteEmployee(string employeeIds);
-        void updateEmployee(int empID, Employee employee);
+        int addEmployee(Employee employee);
+        int deleteEmployee(string employeeIds);
+        int updateEmployee(int empID, Employee employee);
     }
 }

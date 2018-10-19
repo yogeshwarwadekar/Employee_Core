@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Employee_XUnit
 {
-    public class EmployeeTestService : IEmployeeRepository
+    public class EmployeeRepositoryFake : IEmployeeRepository
     {
         private readonly List<Employee> _Employee;
         private readonly List<EmployeeDetail> _EmployeeDetail;
 
-        public EmployeeTestService()
+        public EmployeeRepositoryFake()
         {
 
             _Employee = new List<Employee>()
@@ -83,19 +83,37 @@ namespace Employee_XUnit
             };
         }
 
-        public void addEmployee(Employee employee)
+        public int addEmployee(Employee employee)
         {
-            _Employee.Add(employee);
+            try
+            {
+                _Employee.Add(employee);
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("add employee = " + ex);
+                return 1;
+            }
         }
 
-        public void deleteEmployee(string employeeIds)
+        public int deleteEmployee(string employeeIds)
         {
-            employeeIds = employeeIds.Substring(0, employeeIds.Length - 1);
-            int[] IDs = Array.ConvertAll(employeeIds.Split(','), int.Parse);
-            foreach (int i in IDs)
+            try
             {
-                _Employee.Remove(_Employee.Find(a => a.Emp_ID == i));                
+                employeeIds = employeeIds.Substring(0, employeeIds.Length - 1);
+                int[] IDs = Array.ConvertAll(employeeIds.Split(','), int.Parse);
+                foreach (int i in IDs)
+                {
+                    _Employee.Remove(_Employee.Find(a => a.Emp_ID == i));
+                }
+                return 0;
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("delete employee = " + ex);
+                return 1;
+            }            
         }
 
         public Employee employeeDetail(int id)
@@ -108,20 +126,30 @@ namespace Employee_XUnit
             return _EmployeeDetail;
         }
 
-        public void updateEmployee(int empID, Employee employee)
+        public int updateEmployee(int empID, Employee employee)
         {
-            var emp = _Employee.Find(a => a.Emp_ID == empID);
-            _Employee[1].Emp_First_Name = employee.Emp_First_Name;
-            _Employee[1].Emp_Last_Name = employee.Emp_Last_Name;
-            _Employee[1].Emp_Email_ID = employee.Emp_Email_ID;
-            _Employee[1].Emp_City_ID = employee.Emp_City_ID;
-            _Employee[1].Emp_Dept_ID = employee.Emp_Dept_ID;
-            _Employee[1].Emp_Dob = employee.Emp_Dob;
-            _Employee[1].Emp_Doj = employee.Emp_Doj;
-            _Employee[1].Emp_Mobile_Number = employee.Emp_Mobile_Number;
-            _Employee[1].Emp_Rating = employee.Emp_Rating;
-            _Employee[1].Emp_Skill_ID = employee.Emp_Skill_ID;
-            _Employee[1].Emp_State_ID = employee.Emp_State_ID;
+            try
+            {
+                var emp = _Employee.Find(a => a.Emp_ID == empID);
+                _Employee[1].Emp_First_Name = employee.Emp_First_Name;
+                _Employee[1].Emp_Last_Name = employee.Emp_Last_Name;
+                _Employee[1].Emp_Email_ID = employee.Emp_Email_ID;
+                _Employee[1].Emp_City_ID = employee.Emp_City_ID;
+                _Employee[1].Emp_Dept_ID = employee.Emp_Dept_ID;
+                _Employee[1].Emp_Dob = employee.Emp_Dob;
+                _Employee[1].Emp_Doj = employee.Emp_Doj;
+                _Employee[1].Emp_Mobile_Number = employee.Emp_Mobile_Number;
+                _Employee[1].Emp_Rating = employee.Emp_Rating;
+                _Employee[1].Emp_Skill_ID = employee.Emp_Skill_ID;
+                _Employee[1].Emp_State_ID = employee.Emp_State_ID;
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("update employee = " + ex);
+                return 1;
+            }
         }
+
     }
 }
