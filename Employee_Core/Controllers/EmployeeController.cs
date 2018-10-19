@@ -67,44 +67,53 @@ namespace Employee_Core.Controllers
         
 
         [HttpPost, Route("addEmployee")]
-        public void addEmployee(Employee employee)
+        public int addEmployee(Employee employee)
         {
+            int intReturn;
             try
             {
-                 EmployeeRepository.addEmployee(employee);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("add Employee = " + ex);                
-            }
-        }
-        
-
-        [HttpDelete, Route("deleteEmployee")]
-        public void deleteEmployee(string employeeIds)
-        {
-            try
-            { 
-                 EmployeeRepository.deleteEmployee(employeeIds);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("add Employee = " + ex);                
-            }
-        }
-        
-
-        [HttpPut, Route("updateEmployee")]
-        public void updateEmployee(int empID, Employee employee)
-        {
-            try
-            { 
-                 EmployeeRepository.updateEmployee(empID, employee);
+                intReturn  = EmployeeRepository.addEmployee(employee);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("add Employee = " + ex);
+                intReturn = 1;                
             }
+            return intReturn;
+        }
+        
+
+        [HttpDelete, Route("deleteEmployee")]
+        public int deleteEmployee(string employeeIds)
+        {
+            int intReturn;
+            try
+            { 
+                 intReturn = EmployeeRepository.deleteEmployee(employeeIds);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("add Employee = " + ex);
+                intReturn = 1;
+            }
+            return intReturn;
+        }
+        
+
+        [HttpPut, Route("updateEmployee")]
+        public int updateEmployee(int empID, Employee employee)
+        {
+            int intReturn;
+            try
+            { 
+                 intReturn = EmployeeRepository.updateEmployee(empID, employee);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("add Employee = " + ex);
+                intReturn = 1;
+            }
+            return intReturn;
         }
     }
 }

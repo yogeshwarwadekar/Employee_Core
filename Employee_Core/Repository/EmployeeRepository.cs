@@ -14,23 +14,29 @@ namespace Employee_Core.Repository
             db = _db;
         }
 
-        public void addEmployee(Employee employee)
+        public int addEmployee(Employee employee)
         {
-            if (db != null)
+            try
             {
-                try
+                if (db != null)
                 {
-                     db.Employee.Add(employee);
-                     db.SaveChanges();                    
+                    db.Employee.Add(employee);
+                    db.SaveChanges();
+                    return 0;
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine("add employee" + ex);                   
-                }
-            }            
+                    return 1;
+                }                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("add employee" + ex);
+                return 1;
+            }
         }
 
-        public void deleteEmployee(string employeeIds)
+        public int deleteEmployee(string employeeIds)
         {
             if (db != null)
             {
@@ -40,15 +46,21 @@ namespace Employee_Core.Repository
                     int[] IDs = Array.ConvertAll(employeeIds.Split(','), int.Parse);
                     foreach (int i in IDs)
                     {
-                        db.Employee.Remove( db.Employee.FirstOrDefault(e => e.Emp_ID == i));
-                         db.SaveChanges();
-                    }                    
+                        db.Employee.Remove(db.Employee.FirstOrDefault(e => e.Emp_ID == i));
+                        db.SaveChanges();
+                    }
+                    return 0;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("delete employee : " + ex);             
+                    Console.WriteLine("delete employee : " + ex);
+                    return 1;
                 }
-            }            
+            }
+            else
+            {
+                return 1;
+            }
         }
 
         public Employee employeeDetail(int id)
@@ -75,26 +87,39 @@ namespace Employee_Core.Repository
             }
         }
 
-        public void updateEmployee(int empID, Employee employee)
+        public int updateEmployee(int empID, Employee employee)
         {
             if (db != null)
             {
-                var entity =  db.Employee.FirstOrDefault(e => e.Emp_ID == empID);
+                try
+                {
+                    var entity = db.Employee.FirstOrDefault(e => e.Emp_ID == empID);
 
-                entity.Emp_First_Name = employee.Emp_First_Name;
-                entity.Emp_Last_Name = employee.Emp_Last_Name;
-                entity.Emp_Email_ID = employee.Emp_Email_ID;
-                entity.Emp_Mobile_Number = employee.Emp_Mobile_Number;
-                entity.Emp_State_ID = Convert.ToInt32(employee.Emp_State_ID);
-                entity.Emp_City_ID = Convert.ToInt32(employee.Emp_City_ID);
-                entity.Emp_Skill_ID = Convert.ToInt32(employee.Emp_Skill_ID);
-                entity.Emp_Dob = employee.Emp_Dob;
-                entity.Emp_Doj = employee.Emp_Doj;
-                entity.Emp_Dept_ID = Convert.ToInt32(employee.Emp_Dept_ID);
-                entity.Emp_Rating = employee.Emp_Rating;
+                    entity.Emp_First_Name = employee.Emp_First_Name;
+                    entity.Emp_Last_Name = employee.Emp_Last_Name;
+                    entity.Emp_Email_ID = employee.Emp_Email_ID;
+                    entity.Emp_Mobile_Number = employee.Emp_Mobile_Number;
+                    entity.Emp_State_ID = Convert.ToInt32(employee.Emp_State_ID);
+                    entity.Emp_City_ID = Convert.ToInt32(employee.Emp_City_ID);
+                    entity.Emp_Skill_ID = Convert.ToInt32(employee.Emp_Skill_ID);
+                    entity.Emp_Dob = employee.Emp_Dob;
+                    entity.Emp_Doj = employee.Emp_Doj;
+                    entity.Emp_Dept_ID = Convert.ToInt32(employee.Emp_Dept_ID);
+                    entity.Emp_Rating = employee.Emp_Rating;
 
-                 db.SaveChanges();                
-            }            
+                    db.SaveChanges();
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("update employee : " + ex);
+                    return 1;
+                }
+            }
+            else
+            {
+                return 1;
+            }
         }
     }
 }
