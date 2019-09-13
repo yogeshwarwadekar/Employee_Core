@@ -47,7 +47,6 @@ namespace Employee_Core.JWT
                     }
                     return true;
                 }
-
             }
             return false;
         }

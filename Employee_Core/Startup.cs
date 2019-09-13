@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Employee_Core.Models;
 using Employee_Core.Repository;
 using Newtonsoft.Json.Serialization;
+using Employee_Core.Repository.Interface;
 
 namespace Employee_Core
 {
@@ -33,11 +34,12 @@ namespace Employee_Core
 
             services.AddDbContext<Employee_DatabaseContext>(item => item.UseSqlServer(Configuration.GetConnectionString("EmployeeDBConnection")));
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddScoped<ICityRepository,CityRepository>();
-            services.AddScoped<IDepartmentRepository,DepartmentRepository>();
-            services.AddScoped<IRatingRepository,RatingRepository>();
-            services.AddScoped<IStateRepository,StateRepository>();
-            services.AddScoped<ISkillRepository,SkillRepository>();
+            services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<IStateRepository, StateRepository>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
 
             services.AddCors(option => option.AddPolicy("MyEmployeePolicy", builder =>
             {
@@ -68,7 +70,5 @@ namespace Employee_Core
             app.UseCors("MyEmployeePolicy");
             app.UseMvc();
         }
-
-        
     }
 }

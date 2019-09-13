@@ -22,6 +22,7 @@ namespace Employee_Core.Models
         public virtual DbSet<Skill> Skill { get; set; }
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<EmployeeDetail> EmployeeDetail { get; set; }
+        public virtual DbSet<Login> Login { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -211,6 +212,21 @@ namespace Employee_Core.Models
                 entity.Property(e => e.State_ID)
                     .HasColumnName("State_ID")
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Login>(entity =>
+            {
+                entity.HasKey(e => e.UserID);
+
+                entity.Property(e => e.UserID).HasColumnName("UserID");
+
+                entity.Property(e => e.UserName)
+                    .HasColumnName("UserName")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Password)
+                   .HasColumnName("Password")
+                   .HasMaxLength(50);
             });
         }
     }
