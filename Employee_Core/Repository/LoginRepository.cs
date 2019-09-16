@@ -29,7 +29,7 @@ namespace Employee_Core.Repository
                     return null;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -42,7 +42,7 @@ namespace Employee_Core.Repository
             {
                 return db.Login.ToList();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return null;
             }

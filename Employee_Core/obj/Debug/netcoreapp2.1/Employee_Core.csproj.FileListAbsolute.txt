@@ -18,7 +18,6 @@ C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Debug\netcoreapp2.1\Employee_
 C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Debug\netcoreapp2.1\Employee_Core.pdb
 C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Debug\netcoreapp2.1\JWTTokenBasedAuth.dll
 C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Debug\netcoreapp2.1\System.Web.Http.dll
-C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Debug\netcoreapp2.1\Employee_Core.csprojAssemblyReference.cache
 C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Debug\netcoreapp2.1\Employee_Core.csproj.CoreCompileInputs.cache
 C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Debug\netcoreapp2.1\Employee_Core.RazorAssemblyInfo.cache
 C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Debug\netcoreapp2.1\Employee_Core.RazorAssemblyInfo.cs
