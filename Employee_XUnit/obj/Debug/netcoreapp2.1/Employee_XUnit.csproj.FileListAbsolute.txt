@@ -24,7 +24,6 @@ C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee
 C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.dll
 C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_XUnit.pdb
 C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_Core.dll
-C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\System.Web.Http.dll
 C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\bin\Debug\netcoreapp2.1\Employee_Core.pdb
 C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.csprojAssemblyReference.cache
 C:\POC\EmployeePOC\Employee_Core\Employee_XUnit\obj\Debug\netcoreapp2.1\Employee_XUnit.csproj.CoreCompileInputs.cache

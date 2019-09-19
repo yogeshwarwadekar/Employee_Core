@@ -15,6 +15,10 @@ using Employee_Core.Models;
 using Employee_Core.Repository;
 using Newtonsoft.Json.Serialization;
 using Employee_Core.Repository.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Autofac;
 
 namespace Employee_Core
 {
@@ -27,9 +31,27 @@ namespace Employee_Core
 
         public IConfiguration Configuration { get; }
 
+        public static IContainer container { get; private set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(Options =>
+                {
+                    Options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+
+                        ValidIssuer = "https://localhost:44360",
+                        ValidAudience = "https://localhost:44360",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+                    };
+                });
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<Employee_DatabaseContext>(item => item.UseSqlServer(Configuration.GetConnectionString("EmployeeDBConnection")));
@@ -51,7 +73,7 @@ namespace Employee_Core
                 options.Filters.Add(new ProducesAttribute("application/json"));
             });
 
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +88,7 @@ namespace Employee_Core
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseCors("MyEmployeePolicy");
             app.UseMvc();

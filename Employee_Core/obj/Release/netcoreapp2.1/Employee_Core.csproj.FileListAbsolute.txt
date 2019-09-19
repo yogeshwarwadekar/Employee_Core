@@ -1,0 +1,15 @@
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Release\netcoreapp2.1\Employee_Core.deps.json
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Release\netcoreapp2.1\Employee_Core.runtimeconfig.json
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Release\netcoreapp2.1\Employee_Core.runtimeconfig.dev.json
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Release\netcoreapp2.1\Employee_Core.dll
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\bin\Release\netcoreapp2.1\Employee_Core.pdb
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.csprojAssemblyReference.cache
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.csproj.CoreCompileInputs.cache
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.RazorAssemblyInfo.cache
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.RazorAssemblyInfo.cs
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.AssemblyInfoInputs.cache
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.AssemblyInfo.cs
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.RazorTargetAssemblyInfo.cache
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.dll
+C:\POC\EmployeePOC\Employee_Core\Employee_Core\obj\Release\netcoreapp2.1\Employee_Core.pdb

@@ -643,19 +643,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.IdentityModel.Tokens": "5.5.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
-          "System.IdentityModel.Tokens.Jwt": "5.5.0",
-          "System.Web.Http": "5.2.4.0"
+          "System.IdentityModel.Tokens.Jwt": "5.5.0"
         },
         "runtime": {
           "Employee_Core.dll": {}
-        }
-      },
-      "System.Web.Http.Reference/5.2.4.0": {
-        "runtime": {
-          "System.Web.Http.dll": {
-            "assemblyVersion": "5.2.4.0",
-            "fileVersion": "5.2.60201.0"
-          }
         }
       }
     }
@@ -990,11 +981,6 @@
     },
     "Employee_Core/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "System.Web.Http.Reference/5.2.4.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

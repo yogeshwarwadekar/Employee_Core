@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Employee_Core.JWT;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using Employee_Core.Models;
 using Employee_Core.Repository.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Employee_Core.Controllers
 {
@@ -20,6 +18,38 @@ namespace Employee_Core.Controllers
         public LoginController(ILoginRepository _loginRepository)
         {
             loginRepository = _loginRepository;
+        }
+
+
+        [HttpPost, Route("jwtLogin")]
+        public string jwtLogin(Login login)
+        {
+            Login user = getLogin(login);
+            if (user == null)
+            {
+                return "Invalid client request";
+            }
+
+            if (user != null)
+            {
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
+                var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+
+                var tokeOptions = new JwtSecurityToken(
+                    issuer: "http://localhost:5000",
+                    audience: "http://localhost:5000",
+                    claims: new List<Claim>(),
+                    expires: DateTime.Now.AddMinutes(5),
+                    signingCredentials: signinCredentials
+                );
+
+                var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+                return tokenString;
+            }
+            else
+            {
+                return "Unauthorized";
+            }
         }
 
 
@@ -36,25 +66,7 @@ namespace Employee_Core.Controllers
                 Console.WriteLine("login detail = " + ex);
                 return null;
             }
-        }
-
-
-
-        [HttpPost, Route("jwtLogin")]
-        public string jwtLogin(Login login)
-        {
-            Login user = getLogin(login);
-            if (user != null)
-            {
-                AuthenticationModule authentication = new AuthenticationModule();
-                string token = authentication.GenerateTokenForUser(user.UserName, user.UserID);
-                return token;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        }     
 
 
         [HttpGet, Route("showLogin")]
